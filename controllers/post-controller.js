@@ -10,8 +10,10 @@ const getPosts = (req, res) => {
 		.sort({ name: 1 })
 		.then((posts) => {
 			res
+				.header("Access-Control-Allow-Origin", "*")
 				.status(200)
 				.json(posts)
+
 		})
 		.catch((err) => handleError(res, err))
 }
@@ -71,16 +73,16 @@ const postPost = (req, res) => {
 
 // ?----------------------------------------------
 
-const updatePost = (req, res) => {
-	Post
-		.findByIdAndUpdate(req.params.id, req.body)
-		.then((result) => {
-			res
-				.status(200)
-				.json(result)
-		})
-		.catch((err) => handleError(res, err))
-}
+// const updatePost = (req, res) => {
+// 	Post
+// 		.findByIdAndUpdate(req.params.id, req.body)
+// 		.then((result) => {
+// 			res
+// 				.status(200)
+// 				.json(result)
+// 		})
+// 		.catch((err) => handleError(res, err))
+// }
 
 const updateImg = (req, res) => {
 	const updated = {
@@ -109,5 +111,6 @@ module.exports = {
 	getPost: getPost,
 	deletePost: deletePost,
 	postPost: postPost,
-	updatePost: updatePost,
+	// updatePost: updatePost,
+	updateImg: updateImg,
 }

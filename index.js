@@ -8,12 +8,14 @@ const URL = 'mongodb://localhost:27017/PostServer'
 
 const app = express()
 app.use(express.json())
+
+const cors = require('cors');
+app.use(cors());
+
 app.use(postRoutes)
 app.use('/uploads', express.static('uploads'))
 
 
-// const cors = require('cors');
-// app.use(cors());
 
 
 

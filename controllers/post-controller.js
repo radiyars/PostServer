@@ -10,7 +10,7 @@ const getPosts = (req, res) => {
 		.sort({ name: 1 })
 		.then((posts) => {
 			res
-				.header("Access-Control-Allow-Origin", "*")
+				// .header("Access-Control-Allow-Origin", "*")
 				.status(200)
 				.json(posts)
 
@@ -100,6 +100,11 @@ const updateImg = (req, res) => {
 			{ new: true })
 		.then((result) => {
 			res
+				// .header("Access-Control-Allow-Origin", "*")
+				// .header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+				// .header('Access-Control-Allow-Origin', '*')
+				// .header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+				// .header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Accept')
 				.status(200)
 				.json(result)
 		})

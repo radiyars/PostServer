@@ -4,10 +4,11 @@ const handleError = (res, error) => {
 	res.status(500).json({ error })
 }
 
-const getPosts = (req, res) => {
+
+const getPost = (req, res) => {
 	Post
 		.find()
-		.sort({ name: 1 })
+		// .sort({ name: 1 })
 		.then((posts) => {
 			res
 				// .header("Access-Control-Allow-Origin", "*")
@@ -18,16 +19,18 @@ const getPosts = (req, res) => {
 		.catch((err) => handleError(res, err))
 }
 
-const getPost = (req, res) => {
-	Post
-		.findByIdAndDelete(req.params.id)
-		.then((result) => {
-			res
-				.status(200)
-				.json(result)
-		})
-		.catch((err) => handleError(res, err))
-}
+
+// const getPost = (req, res) => {
+// 	Post
+// 		.findByIdAndDelete(req.params.id)
+// 		.then((result) => {
+// 			res
+// 				.status(200)
+// 				.json(result)
+// 		})
+// 		.catch((err) => handleError(res, err))
+// }
+
 
 const deletePost = (req, res) => {
 	Post
@@ -39,6 +42,7 @@ const deletePost = (req, res) => {
 		})
 		.catch((err) => handleError(res, err))
 }
+
 
 // const postPost = (req, res) => {
 // 	const post = new Post(req.body)
@@ -73,16 +77,17 @@ const postPost = (req, res) => {
 
 // ?----------------------------------------------
 
-// const updatePost = (req, res) => {
-// 	Post
-// 		.findByIdAndUpdate(req.params.id, req.body)
-// 		.then((result) => {
-// 			res
-// 				.status(200)
-// 				.json(result)
-// 		})
-// 		.catch((err) => handleError(res, err))
-// }
+const updatePost = (req, res) => {
+	Post
+		.findByIdAndUpdate(req.params.id, req.body)
+		.then((result) => {
+			res
+				.status(200)
+				.json(result)
+		})
+		.catch((err) => handleError(res, err))
+}
+
 
 const updateImg = (req, res) => {
 	const updated = {
@@ -112,10 +117,10 @@ const updateImg = (req, res) => {
 }
 
 module.exports = {
-	getPosts: getPosts,
+	// getPosts: getPosts,
 	getPost: getPost,
 	deletePost: deletePost,
 	postPost: postPost,
-	// updatePost: updatePost,
+	updatePost: updatePost,
 	updateImg: updateImg,
 }

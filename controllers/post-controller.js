@@ -11,7 +11,6 @@ const getPost = (req, res) => {
 		// .sort({ name: 1 })
 		.then((posts) => {
 			res
-				// .header("Access-Control-Allow-Origin", "*")
 				.status(200)
 				.json(posts)
 
@@ -20,34 +19,16 @@ const getPost = (req, res) => {
 }
 
 
-// const getPost = (req, res) => {
-// 	Post
-// 		.findByIdAndDelete(req.params.id)
-// 		.then((result) => {
-// 			res
-// 				.status(200)
-// 				.json(result)
-// 		})
-// 		.catch((err) => handleError(res, err))
-// }
 
-
-const deletePost = (req, res) => {
-	Post
-		.findByIdAndDelete(req.params.id)
-		.then((result) => {
-			res
-				.status(200)
-				.json(result)
-		})
-		.catch((err) => handleError(res, err))
-}
 
 
 // const postPost = (req, res) => {
-// 	const post = new Post(req.body)
+// 	const post = new Post({
+// 		name: req.body.name,
+// 		imageSrc: req.file ? req.file.path : ''
+// 	})
 
-// 	Post
+// 	post
 // 		.save()
 // 		.then((result) => {
 // 			res
@@ -57,25 +38,7 @@ const deletePost = (req, res) => {
 // 		.catch((err) => handleError(res, err))
 // }
 
-// !--------------------------------------------
 
-const postPost = (req, res) => {
-	const post = new Post({
-		name: req.body.name,
-		imageSrc: req.file ? req.file.path : ''
-	})
-
-	post
-		.save()
-		.then((result) => {
-			res
-				.status(201)
-				.json(result)
-		})
-		.catch((err) => handleError(res, err))
-}
-
-// ?----------------------------------------------
 
 const updatePost = (req, res) => {
 	Post
@@ -105,22 +68,17 @@ const updateImg = (req, res) => {
 			{ new: true })
 		.then((result) => {
 			res
-				// .header("Access-Control-Allow-Origin", "*")
-				// .header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-				// .header('Access-Control-Allow-Origin', '*')
-				// .header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-				// .header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Accept')
 				.status(200)
 				.json(result)
 		})
 		.catch((err) => handleError(res, err))
 }
 
+
 module.exports = {
-	// getPosts: getPosts,
-	getPost: getPost,
-	deletePost: deletePost,
-	postPost: postPost,
-	updatePost: updatePost,
-	updateImg: updateImg,
+	getPost,
+	// deletePost: deletePost,
+	// postPost: postPost,
+	updatePost,
+	updateImg,
 }

@@ -18,9 +18,10 @@ const postSchema = new Schema({
 		default: 0
 	},
 
-	comments: [{
-		text: String
-	}]
+	comments: [
+		String
+	]
+
 })
 
 const Post = mongoose.model('Post', postSchema)

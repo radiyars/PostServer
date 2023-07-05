@@ -9,10 +9,10 @@ const getPost = (req, res) => {
 	Post
 		.find()
 		// .sort({ name: 1 })
-		.then((posts) => {
+		.then((post) => {
 			res
 				.status(200)
-				.json(posts)
+				.json(post)
 
 		})
 		.catch((err) => handleError(res, err))

@@ -4,7 +4,8 @@ const postRoutes = require('./routes/post-routes')
 
 const PORT = 5000
 // const URL = 'mongodb+srv://radiyars:radiyars@cluster0.bzgwtuj.mongodb.net/todo?retryWrites=true&w=majority'
-const URL = 'mongodb://localhost:27017/PostServer'
+// const URL = 'mongodb://localhost:27017/PostServer'
+const URL = 'mongodb+srv://radiyars:radiyars@cluster0.bzgwtuj.mongodb.net/PostServer?retryWrites=true&w=majority'
 
 const app = express()
 app.use(express.json())

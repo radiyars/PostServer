@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const postRoutes = require('./routes/post-routes')
+const path = require('path')
 
 const PORT = 5000
 // const URL = 'mongodb://localhost:27017/PostServer'
@@ -8,14 +9,15 @@ const URL = 'mongodb+srv://radiyars:radiyars@cluster0.bzgwtuj.mongodb.net/PostSe
 
 const app = express()
 app.use(express.json())
+// app.use('/images', express.static())
 
-
-// const cors = require('cors');
-// app.use(cors());
+const cors = require('cors');
+app.use(cors());
 
 app.use(postRoutes)
-app.use('/public', express.static('public'))
-
+app.use('/public', express.static(path.join(__dirname, 'public')))
+// app.use('/public', express.static('public'))
+// .vercel/output/static
 
 
 

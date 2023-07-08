@@ -22,21 +22,21 @@ const getPost = (req, res) => {
 
 
 
-// const postPost = (req, res) => {
-// 	const post = new Post({
-// 		name: req.body.name,
-// 		imageSrc: req.file ? req.file.path : ''
-// 	})
+const postImage = (req, res) => {
+	const post = new Post({
+		name: req.body.name,
+		imageSrc: req.file ? req.file.path : ''
+	})
 
-// 	post
-// 		.save()
-// 		.then((result) => {
-// 			res
-// 				.status(201)
-// 				.json(result)
-// 		})
-// 		.catch((err) => handleError(res, err))
-// }
+	post
+		.save()
+		.then((result) => {
+			res
+				.status(201)
+				.json(result)
+		})
+		.catch((err) => handleError(res, err))
+}
 
 
 
@@ -78,7 +78,7 @@ const updateImg = (req, res) => {
 module.exports = {
 	getPost,
 	// deletePost: deletePost,
-	// postPost: postPost,
 	updatePost,
 	updateImg,
+	postImage
 }

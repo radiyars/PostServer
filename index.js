@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const postRoutes = require('./routes/post-routes')
-const path = require('path')
+// const path = require('path')
 
 const PORT = 5000
 // const URL = 'mongodb://localhost:27017/PostServer'
@@ -15,8 +15,8 @@ app.use(express.json())
 // app.use(cors());
 
 app.use(postRoutes)
-app.use('/public', express.static(path.join(__dirname, 'public')))
-// app.use('/public', express.static('public'))
+// app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use('/public', express.static('public'))
 // .vercel/output/static
 
 

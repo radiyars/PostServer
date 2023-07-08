@@ -11,8 +11,8 @@ const app = express()
 app.use(express.json())
 // app.use('/images', express.static())
 
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 app.use(postRoutes)
 app.use('/public', express.static(path.join(__dirname, 'public')))

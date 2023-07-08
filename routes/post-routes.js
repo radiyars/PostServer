@@ -1,5 +1,5 @@
 const express = require('express')
-const { getPost, updateImg, updatePost } = require('../controllers/post-controller')
+const { getPost, updateImg, updatePost, postImage } = require('../controllers/post-controller')
 const upload = require('../middleware/upload')
 
 

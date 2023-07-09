@@ -15,7 +15,8 @@ app.use(express.json())
 // app.use(cors());
 
 app.use(postRoutes)
-app.use('/static', express.static(path.join(__dirname, '/public')))
+app.use('/public', express.static(path.join(__dirname, '/public')))
+// app.use('/static', express.static(path.join(__dirname, '/public')))
 // app.use('/public', express.static('public'))
 // .vercel/output/static
 
